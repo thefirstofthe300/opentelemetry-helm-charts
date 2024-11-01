@@ -42,7 +42,7 @@ manager:
     tag: ""
   collectorImage:
     repository: ""
-    tag: 0.110.0
+    tag: 0.112.0
   opampBridgeImage:
     repository: ""
     tag: ""
@@ -185,6 +185,11 @@ manager:
   # capabilities:
   #   drop:
   #   - ALL
+
+  # Configuration for enabling the `operator.targetallocator.mtls` feature gate.
+  targetAllocator:
+    mtls:
+      enabled: false
 
 ## Provide OpenTelemetry Operator kube-rbac-proxy container image.
 ##

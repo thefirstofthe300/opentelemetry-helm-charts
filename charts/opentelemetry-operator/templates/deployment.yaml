@@ -74,8 +74,8 @@ spec:
             {{- if and .Values.manager.autoInstrumentationImage.apacheHttpd.repository .Values.manager.autoInstrumentationImage.apacheHttpd.tag }}
             - --auto-instrumentation-apache-httpd-image={{ .Values.manager.autoInstrumentationImage.apacheHttpd.repository }}:{{ .Values.manager.autoInstrumentationImage.apacheHttpd.tag }}
             {{- end }}
-            {{- if .Values.manager.featureGates }}
-            - --feature-gates={{ .Values.manager.featureGates }}
+            {{- if or .Values.manager.featureGates .Values.manager.targetAllocator.mtls.enabled }}
+            - --feature-gates={{ .Values.manager.featureGates }}{{ if .Values.manager.targetAllocator.mtls.enabled }}{{ if .Values.manager.featureGates }},{{ end }}operator.targetallocator.mtls{{ end }}
             {{- end }}
             {{-  if .Values.manager.extraArgs  }}
             {{- .Values.manager.extraArgs | toYaml | nindent 12 }}

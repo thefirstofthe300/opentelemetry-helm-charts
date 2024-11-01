@@ -235,6 +235,22 @@ rules:
       - patch
       - update
       - watch
+  {{- if .Values.manager.targetAllocator.mtls.enabled }}
+  - apiGroups:
+      - cert-manager.io
+    resources:
+      - issuers
+      - certificaterequests
+      - certificates
+    verbs:
+      - create
+      - get
+      - list
+      - watch
+      - update
+      - patch
+      - delete
+  {{- end }}
 
 {{ if .Values.kubeRBACProxy.enabled }}
 ---

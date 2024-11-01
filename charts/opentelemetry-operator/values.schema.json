@@ -1084,6 +1084,35 @@
                     "required": [],
                     "properties": {},
                     "examples": [{}]
+                },
+                "targetAllocator": {
+                    "type": "object",
+                    "default": {
+                        "mtls": {
+                            "enabled": false
+                        }
+                    },
+                    "title": "The targetAllocator Schema",
+                    "properties": {
+                        "mtls": {
+                            "type": "object",
+                            "default": {
+                                "enabled": false
+                            },
+                            "title": "The mtls Schema",
+                            "properties": {
+                                "mtls": {
+                                    "type": "boolean",
+                                    "default": false,
+                                    "title": "The mtls Schema",
+                                    "examples": [
+                                        true
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "examples": [{}]
                 }
             },
             "examples": [{
